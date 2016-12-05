@@ -217,6 +217,26 @@ requirejs([
     });
 
   program
+    .command('w <query> <timeSpent> [comment]')
+    .description('Log work to the first issue returned from this query')
+    .option("-s, --startedAt [value]","Set date of work (default is now)")
+    .action(function (query, timeSpent, comment, p) {
+      auth.setConfig(function (auth) {
+        if (auth) {
+          var o = p.startedAt || new Date().toString(), s = new Date(o);
+          worklog.addByQuery(query, timeSpent, comment, s);
+        }
+      });
+    }).on('--help', function () {
+    console.log('  Worklog Add Help:');
+    console.log();
+    console.log('    <query>: JIRA query search string');
+    console.log('    <timeSpent>: how much time spent (e.g. \'3h 30m\')');
+    console.log('    <comment> (optional) comment');
+    console.log();
+  });
+
+  program
     .command('create [project[-issue]]')
     .description('Create an issue or a sub-task')
     .action(function (projIssue) {
