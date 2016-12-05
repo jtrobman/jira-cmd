@@ -52,6 +52,7 @@ Usage: jira [options] [command]
     open <issue>           Open an issue in a browser
     worklog <issue>        Show worklog about an issue
     worklogadd [options] <issue> <timeSpent> [comment] Log work for an issue
+    w [options] <query> <timeSpent> [comment] Log work to the first issue returned from this query
     create [project[-issue]] Create an issue or a sub-task
     config [options]       Change configuration
     sprint [options]       Works with sprint boards
