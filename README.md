@@ -16,6 +16,10 @@ Then, in your shell type:
 
     $ npm install -g jira-cmd
 
+Or if you want mine, from this repo:
+
+    $ npm install -g https://github.com/jtrobman/jira-cmd
+
 ## Usage
 
 ##### First use
